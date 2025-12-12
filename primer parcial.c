@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void agregar(int c);
-void verl(int c);
-void busq(int c);
-void archivar(int c);
+void agregarunlibro(int c);
+void verlibros(int c);
+void buscarlibros(int c);
+void archivarlibros(int c);
 
 
 
@@ -13,7 +13,7 @@ void archivar(int c);
 struct libro{
 	char titulo[100];
 	char Autor[50];
-	int ano;
+	int anyo; //año
 }libros[50];
 
 int main(int argc, char *argv[]) {
@@ -28,28 +28,28 @@ int main(int argc, char *argv[]) {
 		printf("Seleccione una opción válida");
 		break;
 	case 1:
-		agregar(c);
+		agregarunlibro(c);
 		c=c+1;
 		break;
 	case 2:
-		verl(c);
+		verlibros(c);
 		break;
 	case 3: 
-		busq(c);
+		buscarlibros(c);
 		printf("Si la función no ha devuelto los datos y posición del libro, entonces este no existe aquí\n");
 		break;
 	case 4:
-		archivar(c);
+		archivarlibros(c);
 		break;
 	case 5:
-		f=100;
+		f=100;  //función de salida 
 		break;
 	}
 	}while(f != 100);
 	return 0;
 }
 
-void agregar(int c){
+void agregarunlibro(int c){
 	printf("Ingrese el título del libro(use - en vez de espacios)\n");
 	scanf("%s",libros[c].titulo);
 	printf("Ingrese el autor del libro(use - en vez de espacios)\n");
@@ -59,7 +59,7 @@ void agregar(int c){
 	printf("Libro cargado exitosamente\n");
 }
 
-void verl(int c){
+void verlibros(int c){
 	int i;
 	
 	for(i=0;i<c;i++){
@@ -73,7 +73,7 @@ void verl(int c){
 		
 	}
 }
-void busq(int c){
+void buscarlibros(int c){
 	int e=0,i,bus2=0;
 	char bus[100];
 	
@@ -126,7 +126,7 @@ void busq(int c){
 	}
 }
 
-void archivar(int c){
+void archivarlibros(int c){
 	int i;
 	
 	FILE *colec= fopen("colec.txt","w");
