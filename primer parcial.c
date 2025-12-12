@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void agregarunlibro(int c);
-void verlibros(int c);
-void buscarlibros(int c);
-void archivarlibros(int c);
+void agregarunlibro(int c); //función para agregar libros
+void verlibros(int c); //función para ver libros
+void buscarlibros(int c);  //función para buscar libros
+void archivarlibros(int c);//función para archivar libros
 
 
 
@@ -15,31 +15,31 @@ struct libro{
 	char Autor[50];
 	int anyo; //año
 }libros[50];
-
+//Estructura de 50 libros para cargar con título, autor y año
 int main(int argc, char *argv[]) {
-	int f=0,e=0,c=0;
+	int f=0,eleccion=0,contador=0;
 	
 	printf("Bienvenido a su colección de libros ¿Que desea hacer?\n");
 	do{
 	printf("1)Agregar un libro a la colección\n2)Ver colección total\n3)Buscar un libro por parametro\n4)Archivar la colección\n5)Salir");
-	scanf("%d",&e);
+	scanf("%d",&eleccion);
 	switch(e){
 	default:
 		printf("Seleccione una opción válida");
 		break;
 	case 1:
-		agregarunlibro(c);
+		agregarunlibro(contador);
 		c=c+1;
 		break;
 	case 2:
-		verlibros(c);
+		verlibros(contador);
 		break;
 	case 3: 
-		buscarlibros(c);
+		buscarlibros(contador);
 		printf("Si la función no ha devuelto los datos y posición del libro, entonces este no existe aquí\n");
 		break;
 	case 4:
-		archivarlibros(c);
+		archivarlibros(contador);
 		break;
 	case 5:
 		f=100;  //función de salida 
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-void agregarunlibro(int c){
+void agregarunlibro(int contador){
 	printf("Ingrese el título del libro(use - en vez de espacios)\n");
 	scanf("%s",libros[c].titulo);
 	printf("Ingrese el autor del libro(use - en vez de espacios)\n");
